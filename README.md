@@ -1,2 +1,2 @@
 # RetailSoft
-A retail application developed using HTML,JS,PHP
+A retail application developed using HTML,CSS,JS,PHP and MySql
