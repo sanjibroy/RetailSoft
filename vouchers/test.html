@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input list="myDataList" id="myInput" onkeyup="myFunction()" onblur="hideList()" placeholder="Search for names..">
+    <datalist id="myDataList">
+    </datalist>
+
+
+    <script>
+       var myData = [
+        {id: 1, name: "John"},
+        {id: 2, name: "Jane"},
+        {id: 3, name: "Bob"},
+        {id: 4, name: "Emily"}
+        ];
+
+function myFunction() {
+  var input, filter, datalist, option;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  datalist = document.getElementById("myDataList");
+  datalist.innerHTML = "";
+  
+  for (var i = 0; i < myData.length; i++) {
+    if (myData[i].name.toUpperCase().indexOf(filter) > -1) {
+      option = document.createElement("option");
+      option.value = myData[i].name;
+      option.setAttribute("data-id", myData[i].id);
+      datalist.appendChild(option);
+    }
+  }
+}
+
+function hideList() {
+  var input = document.getElementById("myInput");
+  var datalist = document.getElementById("myDataList");
+  
+  if (!input.matches(":focus")) {
+    datalist.innerHTML = "";
+  }
+}
+
+    </script>
+</body>
+</html>
